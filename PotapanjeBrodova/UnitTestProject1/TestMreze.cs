@@ -58,5 +58,24 @@ namespace UnitTestProject1
                 Assert.Fail();
             }
         }
+        [TestMethod]
+        public void mreža_UkloniPoljeBacaIznimkuZaNepostojeciStupac()
+        {
+            try
+            {
+                Mreza m1 = new Mreza(5, 5);
+
+                m1.UkloniPolje(1, 6);
+                Assert.Fail();
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Assert.IsTrue(true);
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+        }
     }
 }
