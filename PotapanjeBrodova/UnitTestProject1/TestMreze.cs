@@ -77,5 +77,25 @@ namespace UnitTestProject1
                 Assert.Fail();
             }
         }
+        public void mreza_dakMOzpvePolavraca3uhorizontalnomretkuduljine5()
+        {
+            Mreza m = new Mreza(1, 5);
+            Assert.AreEqual(3,m.DajNizoveSlobodnihPolja(3).Count());
+        }
+        public void mreza_dakMOzpvePolavracaprazanuhorizontalnomretkuduljine5uhorizontalnom()
+        {
+            Mreza m = new Mreza(1, 3);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+        }
+        public void mreza_dakMOzpvePolavraca3uvertikalnomomretkuduljine5()
+        {
+            Mreza m = new Mreza(5, 1);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
+        }
+        public void mreza_dakMOzpvePolavracaprazanuvertikalnomretkuduljine5uhorizontalnom()
+        {
+            Mreza m = new Mreza(4, 1);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+        }
     }
 }
