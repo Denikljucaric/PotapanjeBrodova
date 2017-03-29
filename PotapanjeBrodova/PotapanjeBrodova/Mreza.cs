@@ -29,9 +29,9 @@ namespace PotapanjeBrodova
             }
             return p;
         }
-        public IEnumerable<IEnumerable<Polje>> DajNizoveSlobodnihPolja(int duljinaNiza)
+        public IEnumerable<Polje> DajNizoveSlobodnihPolja(int duljinaNiza)
         {
-            List< List/*IEnumerable*/<Polje>> nizovi = new List<List/*IEnumerable*/<Polje>>();
+            List<Polje> nizovi = new List<Polje>();
 
             for (int r = 0; r < redaka; ++r){
                 Queue<Polje> tmp = new Queue<Polje>();
@@ -40,9 +40,28 @@ namespace PotapanjeBrodova
                     if (polje[r, s] != null){
                         i++;
                         tmp.Enqueue(polje[r, s]);
-                        if (i >= 3) nizovi[r].Add(tmp.Dequeue());
+                        if (i >= duljinaNiza) nizovi.Add(tmp.Dequeue());
                     }
                     else{
+                        i = 0;
+                        tmp.Clear();
+                    }
+                }
+            }
+            for (int s = 0; s < stupaca; ++s)
+            {
+                Queue<Polje> tmp = new Queue<Polje>();
+                tmp.Clear();
+                for (int r = 0, i = 0; r < redaka; ++r)
+                {
+                    if (polje[r, s] != null)
+                    {
+                        i++;
+                        tmp.Enqueue(polje[r, s]);
+                        if (i >= duljinaNiza) nizovi.Add(tmp.Dequeue());
+                    }
+                    else
+                    {
                         i = 0;
                         tmp.Clear();
                     }
