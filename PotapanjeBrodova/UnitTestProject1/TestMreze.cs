@@ -78,7 +78,7 @@ namespace UnitTestProject1
             }
         }
         [TestMethod]
-        public void mreza_dajSlobodnaPoljavraca3uhorizontalnomretkuduljine5()
+        public void mreza_DajNizovePoljaVraca3NizaZaBrodDuljine3UVertikalnomStupcDuljine5()
         {
             Mreza m = new Mreza(1, 5);
             Assert.AreEqual(3,m.DajNizoveSlobodnihPolja(3).Count());
@@ -90,15 +90,35 @@ namespace UnitTestProject1
             Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
         }
         [TestMethod]
-        public void mreza_dajSlobodnaPoljavraca3uvertikalnomomretkuduljine5()
+        public void mreza_DajNizovePoljaVraca2NizaZaBrodDuljine4UVertikalnomStupcuDuljine9SEliminiranimPoljemURetku4()
+        {
+            Mreza m = new Mreza(9, 1);
+            m.UkloniPolje(3, 0);
+            Assert.AreEqual(2, m.DajNizoveSlobodnihPolja(4).Count());
+        }
+        [TestMethod]
+        public void mreza_DajNizovePoljaVraca3NizaZaBrodDuljine3UHorizontalnomRetkuDuljine8SEliminiranimPoljemUStupcu4()
+        {
+            Mreza m = new Mreza(1, 8);
+            m.UkloniPolje(0, 3);
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
+        }
+        [TestMethod]
+        public void mreza_DajNizovePoljaVraca3NizaZaBrodDuljine3UHorizontalnomRetkuDuljine5()
         {
             Mreza m = new Mreza(5, 1);
             Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
         }
         [TestMethod]
-        public void mreza_dajSlobodnaPoljavracaprazanuvertikalnomretkuduljine5uhorizontalnom()
+        public void mreza_DajNizovePoljaVracaPrazanNizZaBrodDuljine5UHorizontalnomRetkuDuljine4()
         {
             Mreza m = new Mreza(4, 1);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+        }
+        [TestMethod]
+        public void mreza_DajNizovePoljaVracaPrazanNizZaBrodDuljine5UVertikalnomStupcuDuljine4()
+        {
+            Mreza m = new Mreza(1, 4);
             Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
         }
     }

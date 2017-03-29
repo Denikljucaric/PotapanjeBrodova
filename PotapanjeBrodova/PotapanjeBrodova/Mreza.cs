@@ -29,44 +29,47 @@ namespace PotapanjeBrodova
             }
             return p;
         }
-        public IEnumerable<Polje> DajNizoveSlobodnihPolja(int duljinaNiza)
+        public IEnumerable<IEnumerable<Polje>> DajNizoveSlobodnihPolja(int duljinaNiza)
         {
-            List<Polje> nizovi = new List<Polje>();
+            List<IEnumerable<Polje>> nizovi = new List<IEnumerable<Polje>> ();
+            
+                for (int r = 0; r < redaka; ++r)
+                {
+                    List<Polje> tmp = new List<Polje>();
 
-            for (int r = 0; r < redaka; ++r){
-                Queue<Polje> tmp = new Queue<Polje>();
-                tmp.Clear();
-                for (int s = 0, i = 0; s < stupaca; ++s){
-                    if (polje[r, s] != null){
-                        i++;
-                        tmp.Enqueue(polje[r, s]);
-                        if (i >= duljinaNiza) nizovi.Add(tmp.Dequeue());
-                    }
-                    else{
-                        i = 0;
+                   for (int s = 0, i = 0; s < stupaca; ++s)
+                        {
+                        if (polje[r, s] != null)i++;
+                        else i = 0;
+                    if (i >= duljinaNiza) {
+                        for (int counter = 0; duljinaNiza > counter; counter++) {
+                            tmp.Add(polje[r, s-counter]);
+                        }
+                        nizovi.Add(tmp);
                         tmp.Clear();
                     }
+                    }
                 }
-            }
             for (int s = 0; s < stupaca; ++s)
             {
-                Queue<Polje> tmp = new Queue<Polje>();
-                tmp.Clear();
+                List<Polje> tmp = new List<Polje>();
+
                 for (int r = 0, i = 0; r < redaka; ++r)
                 {
-                    if (polje[r, s] != null)
+                    if (polje[r, s] != null) i++;
+                    else i = 0;
+                    if (i >= duljinaNiza)
                     {
-                        i++;
-                        tmp.Enqueue(polje[r, s]);
-                        if (i >= duljinaNiza) nizovi.Add(tmp.Dequeue());
-                    }
-                    else
-                    {
-                        i = 0;
+                        for (int counter = 0; duljinaNiza > counter; counter++)
+                        {
+                            tmp.Add(polje[r-counter, s]);
+                        }
+                        nizovi.Add(tmp);
                         tmp.Clear();
                     }
                 }
             }
+
             return nizovi;
         }
         public void UkloniPolje(int redak, int stupac) {
