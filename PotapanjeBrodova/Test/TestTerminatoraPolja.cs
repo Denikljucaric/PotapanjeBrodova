@@ -10,7 +10,7 @@ namespace Test
     public class TestTerminatoraPolja
     {
         private Mreža mreza;
-        private TerminatoraPolja terminator;
+        private TerminatorPolja terminator;
         [TestInitialize]
         public void PripremiMrezuITerminator() {
             mreza = new Mreža(10, 10);
@@ -21,7 +21,7 @@ namespace Test
         {
 
             IEnumerable<Polje> polja = new Polje[] { new Polje(3, 3), new Polje(3, 4) };
-            terminator.ukloniPolja(polja);
+            terminator.UkloniPolja(polja);
             Assert.AreEqual(88,mreza.DajSlobodnaPolja().Count());
             //dodaj provjeru da su izbaceni (3,3 i 3,4) i provjerit rubna polja 2,2 i 2,5 i 4,2 i 4,5
         }
