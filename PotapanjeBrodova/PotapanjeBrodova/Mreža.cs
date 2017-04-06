@@ -35,14 +35,17 @@ namespace PotapanjeBrodova
 
         public void UkloniPolje(int redak, int stupac)
         {
-            polja[redak, stupac] = null;
+                polja[redak, stupac] = null;
         }
 
         public void UkloniPolje(Polje p)
         {
-            polja[p.Redak, p.Stupac] = null;
+            if(p!=null)
+                UkloniPolje(p.Redak, p.Stupac);
         }
-
+        public Polje DajZadnjePolje() {
+            return new Polje(redaka, stupaca);
+        }
         IEnumerable<int> DajNizBrojeva(int maxVrijednost) {
             for (int i = 0; i < maxVrijednost; ++i)yield return i;
         }

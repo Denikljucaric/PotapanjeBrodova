@@ -23,32 +23,70 @@ namespace Test
             IEnumerable<Polje> polja = new Polje[] { new Polje(3, 3), new Polje(3, 4) };
             terminator.UkloniPolja(polja);
             Assert.AreEqual(88,mreza.DajSlobodnaPolja().Count());
-            //dodaj provjeru da su izbaceni (3,3 i 3,4) i provjerit rubna polja 2,2 i 2,5 i 4,2 i 4,5
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(3,3)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(3, 4)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(2, 2)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(2, 5)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(4, 2)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(4, 5)));
+           
         }
         [TestMethod]
         public void TerminatorPolja_UklanjaSvaPoljaOkoBrodaUZGornjiRubMreze()
         {
-
+            IEnumerable<Polje> polja = new Polje[] { new Polje(0, 3), new Polje(0, 4) };
+            terminator.UkloniPolja(polja);
+            Assert.AreEqual(92, mreza.DajSlobodnaPolja().Count());
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 3)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 4)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 2)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(1, 2)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(1, 5)));
         }
         [TestMethod]
         public void TerminatorPolja_UklanjaSvaPoljaOkoBrodaUGornjiLjeviKutMreze()
         {
-
+            IEnumerable<Polje> polja = new Polje[] { new Polje(0, 0), new Polje(0, 1) };
+            terminator.UkloniPolja(polja);
+            Assert.AreEqual(94, mreza.DajSlobodnaPolja().Count());
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 0)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 1)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 2)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(1, 1)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(1, 2)));
         }
         [TestMethod]
         public void TerminatorPolja_UklanjaSvaPoljaOkoBrodaUGornjiDesniKutMreze()
         {
-
+            IEnumerable<Polje> polja = new Polje[] { new Polje(0, 9), new Polje(1, 9) };
+            terminator.UkloniPolja(polja);
+            Assert.AreEqual(94, mreza.DajSlobodnaPolja().Count());
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(0, 9)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(1, 9)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(2, 9)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(2, 8)));
         }
         [TestMethod]
         public void TerminatorPolja_UklanjaSvaPoljaOkoBrodaUDoljnjiLjeviKutMreze()
         {
-
+            IEnumerable<Polje> polja = new Polje[] { new Polje(8, 9), new Polje(9, 9) };
+            terminator.UkloniPolja(polja);
+            Assert.AreEqual(94, mreza.DajSlobodnaPolja().Count());
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(9, 9)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(8, 9)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(7, 8)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(9, 8)));
         }
         [TestMethod]
         public void TerminatorPolja_UklanjaSvaPoljaOkoBrodaUDoljnjiDesniKutMreze()
         {
-
+            IEnumerable<Polje> polja = new Polje[] { new Polje(9, 0), new Polje(9, 1) };
+            terminator.UkloniPolja(polja);
+            Assert.AreEqual(94, mreza.DajSlobodnaPolja().Count());
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(9, 0)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(9, 1)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(8, 2)));
+            Assert.IsFalse(mreza.DajSlobodnaPolja().Contains(new Polje(8, 0)));
         }
     }
 }
