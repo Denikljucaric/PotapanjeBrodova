@@ -9,11 +9,12 @@ namespace PotapanjeBrodova
     {
         public Flota SložiFlotu(Mreža mreža, IEnumerable<int> duljineBrodova)
         {
-            Flota flota = new Flota();
+            
             TerminatorPolja terminator = new TerminatorPolja(mreža);
             int count=3;
             while (--count!=0)
             {
+                Flota flota = new Flota();
                 try
                 {
                     foreach (int i in duljineBrodova)

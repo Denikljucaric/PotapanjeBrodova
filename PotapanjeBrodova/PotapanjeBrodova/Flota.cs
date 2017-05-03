@@ -27,13 +27,10 @@ namespace PotapanjeBrodova
             get { return brodovi.Count; }
         }
 
-        private List<Brod> brodovi = new List<Brod>();
-        public int BrojBrodova {
-            get { return brodovi.Count(); }
-        }
         public List<Brod> DajListuBrodova(){
             return this.brodovi;
             }
+
         private List<Brod>  brodovi = new List<Brod>();
     }
 }

@@ -17,14 +17,15 @@ namespace Test
         {
             Brodograditelj b = new Brodograditelj();
             Mreža mreza = new Mreža(10, 10);
-            IEnumerable<int> duljineBrodova = new int[] { 5, 4, 4, 3, 3, 3, 2, 2, 2, 2 };
+            int[] duljineBrodova = new int[] { 5, 4, 4, 3, 3, 3, 2, 2, 2, 2 };
             Flota f = b.SložiFlotu(mreza, duljineBrodova);
             Assert.AreEqual(duljineBrodova.Count(), f.BrojBrodova);
-            //IEnumerable<int> duljineBrodova2 = new int[] {};
-            //foreach (Brod brod in f.DajListuBrodova()) {
-            //    duljineBrodova2.
-            //        (brod.Polja.Count());
-            //}
+            List<int> duljineBrodova2= new List<int>();
+            foreach (Brod brod in f.DajListuBrodova())
+            {
+                duljineBrodova2.Add(brod.Polja.Count());
+            }
+            CollectionAssert.AreEquivalent(duljineBrodova,duljineBrodova2);
             //todo provjerit ako ima samo jedan duljine 5 2 dljine 4 ...
         }
     }
