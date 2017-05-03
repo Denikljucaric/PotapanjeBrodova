@@ -35,7 +35,6 @@ namespace PotapanjeBrodova
             return null;
         }
 
-        // TODO: obratiti pažnju na slučaj da se ne mogu svi brodovi složiti
 
         private Random slučajni = new Random();
     }

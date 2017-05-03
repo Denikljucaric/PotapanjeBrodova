@@ -28,5 +28,6 @@ namespace Test
             CollectionAssert.AreEquivalent(duljineBrodova,duljineBrodova2);
             //todo provjerit ako ima samo jedan duljine 5 2 dljine 4 ...
         }
+
     }
 }
