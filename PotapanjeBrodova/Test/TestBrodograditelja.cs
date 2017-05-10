@@ -11,7 +11,6 @@ namespace Test
     public class TestBrodograditelja
     {
        
-
         [TestMethod]
         public void Brodograditelj_SloziFlotuVracaFlotuBrodovimaZadaneDuljine()
         {
@@ -21,12 +20,12 @@ namespace Test
             Flota f = b.SložiFlotu(mreza, duljineBrodova);
             Assert.AreEqual(duljineBrodova.Count(), f.BrojBrodova);
             List<int> duljineBrodova2= new List<int>();
-            foreach (Brod brod in f.DajListuBrodova())
+            foreach (Brod brod in f.Brodovi)
             {
                 duljineBrodova2.Add(brod.Polja.Count());
             }
             CollectionAssert.AreEquivalent(duljineBrodova,duljineBrodova2);
-            //todo provjerit ako ima samo jedan duljine 5 2 dljine 4 ...
+            
         }
 
     }
