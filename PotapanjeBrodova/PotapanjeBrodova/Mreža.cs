@@ -19,6 +19,7 @@ namespace PotapanjeBrodova
             }
         }
 
+
         public IEnumerable<Polje> DajSlobodnaPolja()
         {
             List<Polje> p = new List<Polje>();
