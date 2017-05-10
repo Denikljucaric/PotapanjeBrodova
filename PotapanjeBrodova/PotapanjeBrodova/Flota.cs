@@ -5,9 +5,10 @@ using System.Text;
 
 namespace PotapanjeBrodova
 {
-    public class Flota
+    public class Flota : IGađani
     {
-        public void DodajBrod(IEnumerable<Polje> polja) {
+        public void DodajBrod(IEnumerable<Polje> polja)
+        {
             brodovi.Add(new Brod(polja));
         }
 
@@ -27,10 +28,11 @@ namespace PotapanjeBrodova
             get { return brodovi.Count; }
         }
 
-        public List<Brod> DajListuBrodova(){
-            return this.brodovi;
-            }
+        public IEnumerable<Brod> Brodovi
+        {
+            get { return brodovi; }
+        }
 
-        private List<Brod>  brodovi = new List<Brod>();
+        private List<Brod> brodovi = new List<Brod>();
     }
 }
