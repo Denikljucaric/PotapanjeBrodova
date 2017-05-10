@@ -59,7 +59,7 @@ namespace PotapanjeBrodova
         {
             TaktikaGađanja = TaktikaGađanja.Linijsko;
             var pogodenoPolje = pucač.PogodenaPolja;
-            pucač = new SlucajniPucač(mreža, pogodenoPolje, duljineBrodova.First());
+            pucač = new SlucajniPucač(mreža, duljineBrodova.First());
         }
 
         private void PromijeniTaktikuUNasumično()
