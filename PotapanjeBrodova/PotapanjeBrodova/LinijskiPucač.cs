@@ -5,23 +5,13 @@ using System.Text;
 
 namespace PotapanjeBrodova
 {
-    public class SlucajniPucač : IPucač
+    public class LinijskiPucač : IPucač
     {
-
-
-        public SlucajniPucač(Mreža mreza, int duljinaBroda)
+        public LinijskiPucač(Mreža mreža, IEnumerable<Polje> pogođena, int duljinaBroda)
         {
-            this.mreza = mreza;
+            this.mreža = mreža;
+            this.pogođenaPolja = pogođena;
             this.duljinaBroda = duljinaBroda;
-
-
-        }
-        public IEnumerable<Polje> PogodenaPolja
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
         }
 
         public Polje Gađaj()
@@ -33,7 +23,17 @@ namespace PotapanjeBrodova
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Polje> PogođenaPolja
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        private Mreža mreža;
+        private IEnumerable<Polje> pogođenaPolja;
         private int duljinaBroda;
-        private Mreža mreza;
     }
 }
