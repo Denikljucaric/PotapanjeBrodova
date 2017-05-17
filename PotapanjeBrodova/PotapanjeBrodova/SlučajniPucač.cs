@@ -24,13 +24,14 @@ namespace PotapanjeBrodova
 
         public void ObradiGađanje(RezultatGađanja rezultat)
         {
+            mreža.UkloniPolje(gađanoPolje);
             switch (rezultat)
             {
                 case RezultatGađanja.Promašaj:
                     return;
                 case RezultatGađanja.Pogodak:
                     pogođenaPolja.Add(gađanoPolje);
-                    mreža.UkloniPolje(gađanoPolje);
+                   
                     return;
                 case RezultatGađanja.Potopljen:
                     pogođenaPolja.Add(gađanoPolje);
