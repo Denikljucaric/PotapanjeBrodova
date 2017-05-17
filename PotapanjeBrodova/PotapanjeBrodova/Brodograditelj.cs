@@ -7,9 +7,9 @@ namespace PotapanjeBrodova
 {
     public class Brodograditelj
     {
-        public Flota SložiFlotu(Mreža mreža, IEnumerable<int> duljineBrodova)
+        public Flota SložiFlotu(int redaka,int stupaca, IEnumerable<int> duljineBrodova)
         {
-            
+            Mreža mreža = new Mreža(redaka, stupaca);
             TerminatorPolja terminator = new TerminatorPolja(mreža);
             int count=3;
             while (--count!=0)
